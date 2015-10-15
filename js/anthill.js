@@ -13,7 +13,37 @@ define('Anthill', [], function () {
 			}
 			this.field.push(col);
 		}
-
+		this.colors ={
+			1:"#51574a",
+			2:"#447c69",
+			3:"#74c493",
+			4:"#8e8c6d",
+			5:"#e4bf80",
+			6:"#e2975d",
+			7:"#e9d78e",
+			8:"#f19670",
+			9:"#e16552",
+			10:"#c94a53",
+			11:"#a34974",
+			12:"#be5168",
+			13:"#65387d",
+			14:"#e0598b",
+			15:"#9abf88",
+			16:"#7c9fb0",
+			17:"#4e2472",
+			18:"#e279a3",
+			19:"#5698c4"
+		}
+		this.setColor = function(number, color) {
+			this.colors[number]=color
+		}
+		this.getColor = function (number) {
+			if (!this.colors[number]) {
+				return '#000'
+			} else {
+				return this.colors[number]
+			}
+		}
 		this.draw = function (context) {
 			var width = context.canvas.clientWidth;
 			var height = context.canvas.clientHeight;
@@ -47,7 +77,8 @@ define('Anthill', [], function () {
 			for(var i=0; i<this.width; i++) {
 				for(var j=0; j<this.height; j++) {
 					if (this.field[i][j]!=0) {
-						context.fillRect(i*cellWidth, j*cellHeight, cellWidth, cellHeight)
+						context.fillStyle = this.getColor(this.field[i][j]);
+						context.fillRect(i*cellWidth, j*cellHeight, cellWidth, cellHeight);
 					}
 				}
 			}

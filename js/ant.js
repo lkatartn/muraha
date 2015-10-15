@@ -3,23 +3,37 @@ define('Ant', [], function(){
     	var defaults = {
     		x:0,
     		y:0,
-    		direction: 'n'
+    		direction: 'n',
+            fingerprint: 1
     	}
     	var params = opts ? opts : defaults;
 
-    	this.x = params.x;
-    	this.y = params.y;
-    	this.direction = params.direction;
+    	this.x = params.x || 0;
+    	this.y = params.y || 0;
+    	this.direction = params.direction || 'n';
+        this.fingerprint=params.fingerprint || 1;
 
     	this.rule = function(field) {
     		if (field[this.x][this.y]==0) {
-    			field[this.x][this.y]=1;
+    			field[this.x][this.y]= this.fingerprint;
     			this.turnRight();
     		} else {
     			field[this.x][this.y]=0;
     			this.turnLeft();
     		}
     		this.step();
+            if (this.x>=field.length) {
+                this.x=0
+            } else if (this.x<0) {
+                this.x=field.length-1
+            }
+
+            if (this.y>=field[0].length) {
+                this.y=0
+            } else if (this.y<0) {
+                this.y=field[0].length-1
+            }
+
     	}
 
     	this.step = function() {
