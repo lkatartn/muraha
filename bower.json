@@ -1,0 +1,28 @@
+{
+  "name": "muraha",
+  "version": "0.0.1",
+  "authors": [
+    "Alexey Kutas <lkatartn@gmail.com>"
+  ],
+  "description": "Langton's ant",
+  "main": "index.html",
+  "keywords": [
+    "langton's",
+    "ant",
+    "langton",
+    "muraha",
+    "lkatartn"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "requirejs": "~2.1.20",
+    "lodash": "~3.10.1"
+  }
+}
