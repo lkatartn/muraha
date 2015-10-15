@@ -1,6 +1,10 @@
 #Muraha
 Langton's ant in clear js
 ---
+Go to
+[https://lkatartn.github.io/muraha](https://lkatartn.github.io/muraha) 
+
+Or try it locally 
 
 * `npm install`
 
