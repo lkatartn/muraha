@@ -5,7 +5,7 @@
     "Alexey Kutas <lkatartn@gmail.com>"
   ],
   "description": "Langton's ant",
-  "main": "index.html",
+  "main": "public/index.html",
   "keywords": [
     "langton's",
     "ant",
