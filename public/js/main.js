@@ -16,13 +16,17 @@ requirejs.config({
 
 
 require(['Anthill', 'Ant', 'lodash'], function(Anthill, Ant, _ ) {
+		muraha={
 
+		};
 	    var ctx = document.getElementById('anthill').getContext('2d');
-	    var anthill = new Anthill(120,80)
+	    var anthill = new Anthill(120,80);
+	    muraha.anthill = anthill;
+	    muraha.ants=[];
 		anthill.draw(ctx);
-
+		muraha.speed = 1;
 		for (var i= 0; i< 10; i++) {
-			anthill.ants.push(new Ant({
+			muraha.ants.push(new Ant({
 				x: 2*i,
 				y: 2*i,
 				fingerprint: i+1
@@ -34,19 +38,29 @@ require(['Anthill', 'Ant', 'lodash'], function(Anthill, Ant, _ ) {
 			anthill.draw(ctx);
 			window.requestAnimationFrame(drawLoop)
 		}
+		
 		window.requestAnimationFrame(drawLoop);
-		window.start = function(speed){
-			return setInterval(function(){
-				_.times(speed, function(){
-					for(ant in anthill.ants) {
-						anthill.ants[ant].rule(anthill.field)
+		muraha.start = function(){
+			muraha.timer = setInterval(function(){
+				_.times(muraha.speed, function(){
+					for(ant in muraha.ants) {
+						muraha.ants[ant].rule(anthill.field)
 					}
 				})
-			}, 0);
+			}, 30);
 		};
-		window.stop = function(timerId) {
-			clearInterval(timerId)
+		muraha.stop = function() {
+			clearInterval(muraha.timer);
 		}
-		window.timerId = window.start(1);
+		muraha.start();
+
+		//buttons listeners
+		document.getElementById('start').onclick=muraha.start;
+		document.getElementById('stop').onclick=muraha.stop;
+		document.getElementById('set-speed').onclick = function() {
+			muraha.speed = Math.floor(prompt('Enter the speed >1',1));
+			muraha.stop();
+			muraha.start();
+		}
 		
 })

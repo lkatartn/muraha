@@ -34,7 +34,6 @@ define('Anthill', [], function () {
 			18:"#e279a3",
 			19:"#5698c4"
 		}
-		this.ants =[];
 		this.setColor = function(number, color) {
 			this.colors[number]=color
 		}
