@@ -44,6 +44,9 @@ define('Anthill', [], function () {
 				return this.colors[number]
 			}
 		}
+		this.addBlock = function(x, y, colorIndex) {
+			this.field[x][y] = colorIndex;
+		}
 		this.draw = function (context) {
 			var width = context.canvas.clientWidth;
 			var height = context.canvas.clientHeight;
