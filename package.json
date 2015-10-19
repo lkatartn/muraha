@@ -1,6 +1,6 @@
 {
   "name": "muraha",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "langton's ant realisation in clear js",
   "main": "static.js",
   "dependencies": {

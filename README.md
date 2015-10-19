@@ -1,5 +1,5 @@
 #Muraha
-Langton's ant in clear js
+Langton's ant in pure js
 ---
 Go to
 [https://lkatartn.github.io/muraha](https://lkatartn.github.io/muraha) 

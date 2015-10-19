@@ -17,10 +17,9 @@ requirejs.config({
 
 
 require(['Muraha'], function(Muraha) {
-		var muraha = new Muraha(100, 80);
-		muraha.addAnt(10,10);
-		muraha.addAnt(20,10);
-		muraha.addAnt(30,10);
-		muraha.addAnt(10,10);
+		var muraha = new Muraha(200, 100);
+		for(var i=0; i<10; i++){
+			muraha.addAnt(Math.floor(Math.random()*199), Math.floor(Math.random()*99))
+		}
 		muraha.start();		
 })
